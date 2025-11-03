@@ -6,6 +6,7 @@ export const screenElement = document.querySelector('.screen') as HTMLElement;
 // константы для плеера
 export const audio: HTMLAudioElement = document.getElementById('audio-element') as HTMLAudioElement;
 export const playPauseBtn: HTMLButtonElement = document.getElementById('play-pause-btn') as HTMLButtonElement;
+// export const playPauseBtn: HTMLButtonElement = document.getElementById('play-pause-btn') as HTMLButtonElement;
 export const progressFill: HTMLElement = document.querySelector('.progress-fill') as HTMLElement;
 export const seekBar: HTMLInputElement = document.querySelector('.seek-bar') as HTMLInputElement;
 export const thumb: HTMLElement = document.querySelector('.thumb') as HTMLElement;

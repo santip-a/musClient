@@ -7,31 +7,92 @@
 @import url(./block/progress-player/progress-player.css);
 
 
+/* Учитываем нижнюю панель браузера */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .screen-btns {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Запасной вариант для старых браузеров */
+@supports not (padding-bottom: env(safe-area-inset-bottom)) {
+  .screen-btns {
+    padding-bottom: 34px;
+    /* Примерная высота панели */
+  }
+}
+
+
+.html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  /* Чтобы не было прокрутки */
+}
+
+.main {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 .buttons {
+  flex: 0 0 60%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* 3 колонки одинаковой ширины */
-  grid-template-rows: repeat(5, 45px);
-  /* 5 строк по 45px */
-  gap: 8px;
+
+  /* Заменяем фиксированные строки на равномерное распределение */
+  grid-template-rows: repeat(4, 1fr);
+  /* 4 строки (1-9, *,0,Х,play) */
+  grid-auto-rows: 1fr;
+  /* для play, которая растягивается */
+
+  gap: 12px;
   width: 100%;
-  /* растягиваем на всю ширину */
   max-width: 100%;
-  /* на случай, если есть родитель с ограничением */
-  padding: 0 20px;
-  /* опционально: отступы по бокам */
+  padding: 16px 0;
+  /* чуть больше воздуха */
   box-sizing: border-box;
-  /* чтобы padding не ломал ширину */
   color: #fff;
-  text-align: center;
   font-size: 1.2rem;
   font-weight: 500;
-  margin: 0 auto;
-  /* центрируем, если ширина меньше экрана */
 }
 
 .play-btn {
   grid-column: 1 / -1;
-  /* от первой до последней колонки */
-  /* или: grid-column: span 3; */
+  /* Занимает все 3 колонки */
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+
+/* Блок с плеером и кнопками — прижат к низу */
+.screen-btns {
+  flex: 0 0 auto;
+  /* Занимает только своё содержимое */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #333;
+  padding-top: 12px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  /* 16px — твой отступ, + безопасная зона */
+}
+
+
+.player {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  /* gap: 8px; */
+}
+
+.audio-player {
+  width: 100%;
+  position: relative;
 }

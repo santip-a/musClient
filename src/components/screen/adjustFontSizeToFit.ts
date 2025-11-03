@@ -10,7 +10,7 @@ export function adjustFontSizeToFit(text:string) {
   resultElement.innerText = text;
 
   // Параметры
-  const initialFontSizeRem = 5;
+  const initialFontSizeRem = 11;
   const minFontSizeRem = 1;
   const stepRem = -0.1;
 

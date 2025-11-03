@@ -1,8 +1,6 @@
 body {
   /* Dynamic viewport height — учитывает панели браузера */
-  min-height: 100dvh;
-  /* display: grid; */
-  /* grid-template-rows: 1fr; */
+  /* min-height: 100dvh; */
   margin: 0;
   padding: 25px;
   max-width: 600px;
@@ -11,5 +9,9 @@ body {
   border: 8px solid #030303;
   border-radius: 10px;
 
-
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100dvh;
+  /* Важно! */
 }
